@@ -2,6 +2,7 @@ package com.scalesec.vulnado;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import org.springframework.web.util.HtmlUtils;
 
 public class Cowsay {
   public static String run(String input) {
@@ -18,7 +19,7 @@ public class Cowsay {
 
       String line;
       while ((line = reader.readLine()) != null) {
-        output.append(line + "\n");
+        output.append(HtmlUtils.htmlEscape(String.valueOf(line)) + "\n");
       }
     } catch (Exception e) {
       e.printStackTrace();
