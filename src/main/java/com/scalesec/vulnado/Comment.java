@@ -67,7 +67,7 @@ public class Comment {
       pStatement.setString(1, id);
       return 1 == pStatement.executeUpdate();
     } catch(Exception e) {
-      e.printStackTrace();
+      /* Logging errors in the System.err may lead to information leakage. Instead, you should write the error to your logger like so: LOGGER.error("Unexpected error: mobb-7e16b09aecf6bc53edda532386b8822e"); */
     } finally {
       return false;
     }
