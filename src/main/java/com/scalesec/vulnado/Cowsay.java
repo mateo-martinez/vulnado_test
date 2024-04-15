@@ -1,12 +1,13 @@
 package com.scalesec.vulnado;
 
 import java.io.BufferedReader;
+import org.apache.commons.text.StringEscapeUtils;
 import java.io.InputStreamReader;
 
 public class Cowsay {
   public static String run(String input) {
     ProcessBuilder processBuilder = new ProcessBuilder();
-    String cmd = "/usr/games/cowsay '" + input + "'";
+    String cmd = "/usr/games/cowsay '" + StringEscapeUtils.escapeXSI(input) + "'";
     System.out.println(cmd);
     processBuilder.command("bash", "-c", cmd);
 
